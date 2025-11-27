@@ -1,3 +1,10 @@
 [project]
 name = "grandprix-ticketing"
+description = "A ticketing system designed for the Purdue Grand Prix with hopes of transforming into something more modular and customizable"
 version = "0.1"
+authors = [
+    { name = "Ruhaan Bhargav", email = "bharga54@purdue.edu" },
+    { name = "Ryan Hubbart", email = "rhubbart@purdue.edu" },
+]
+readme = "README.md"
+dependencies = ['qrcode[pil]']
