@@ -13,5 +13,5 @@ class Ticket:
     Represents a ticket object in the ticketing system.
     -----------------------------------------------------------------------------
     | Attributes:
-    |-
+    |- 
     """
