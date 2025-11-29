@@ -30,19 +30,21 @@ class User:
       self.__last_name = last_name
       self.__email = email
       self.__phone = phone
-      self.__user_id = uuid.uuid4()
+      self.__user_id = str(uuid.uuid4()) # Generates UUID
 
     # A string representation of the user
     def __str__(self):
       return (
-          f"First Name: {self.__first_name}\n"
-          f"Last Name: {self.__last_name}\n"
-          f"User ID: {self.__user_id}\n"
-          f"Email: {self.__email is not None}\n"
-          f"Phone: {self.__phone is not None}\n"
+          f"First Name: {self.get_first_name()}\n"
+          f"Last Name: {self.get_last_name()}\n"
+          f"User ID: {self.get_user_id()}\n"
+          f"Email: {self.get_email()}\n"
+          f"Phone: {self.get_phone()}\n"
       )
 
     # Accessor methods
+    def get_user_id(self) -> str:
+      return self.__user_id
     def get_first_name(self) -> str:
       return self.__first_name
     def get_last_name(self) -> str:
