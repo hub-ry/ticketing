@@ -7,8 +7,9 @@ import qrcode
 # Every ticket will contain a User the ticket was issued to
 from .User import User
 
+
 class Ticket:
-  """
+    """
     Represents a ticket object in the ticketing system.
     -----------------------------------------------------------------------------
     | Attributes:

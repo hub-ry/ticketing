@@ -47,7 +47,7 @@ class User:
       return self.__first_name
     def get_last_name(self) -> str:
       return self.__last_name
-    def get_email(self) -> str:
-      return self.__email
-    def get_phone(self) -> str:
-      return self.__phone
+    def get_email(self) -> bool:
+      return (self.__email is not None)
+    def get_phone(self) -> bool:
+      return (self.__phone is not None)
