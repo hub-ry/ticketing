@@ -7,4 +7,7 @@ authors = [
     { name = "Ryan Hubbart", email = "rhubbart@purdue.edu" },
 ]
 readme = "README.md"
-dependencies = ['qrcode[pil]']
+dependencies = [
+    'qrcode[pil]',
+    'sqlite3',
+]
