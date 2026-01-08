@@ -9,5 +9,17 @@ authors = [
 readme = "README.md"
 dependencies = [
     'qrcode[pil]',
-    'sqlite3',
 ]
+
+[project.optional-dependencies]
+dev = [
+    'pytest>=7.0.0',
+    'pytest-cov>=4.0.0',  # for coverage reports
+]
+
+[tool.pytest.ini_options]
+testpaths = ["testing"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
