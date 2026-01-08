@@ -1,0 +1,46 @@
+# Python build artifacts
+*.egg-info/
+*.egg
+build/
+dist/
+*.pyc
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+
+# Database files (you may want to keep ticket.db for development, but ignore test databases)
+test_*.db
+*.db-journal
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Project specific
+qrcodes/
+test_qrcodes/
+*.png
+!README_images/*.png
+

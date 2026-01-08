@@ -27,7 +27,7 @@ class Ticket:
         self.__user = user
         self.__ticket_id = str(uuid.uuid4())
         self.__qrcode_string = f"{user.get_first_name()}~{user.get_last_name()},{user.get_user_id()},{self.__ticket_id}"
-        self.__qrcode = qrcode.make(self.qrcode_string)
+        self.__qrcode = qrcode.make(self.__qrcode_string)
 
     def __str__(self):
         return(
