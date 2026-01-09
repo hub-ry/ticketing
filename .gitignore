@@ -44,3 +44,13 @@ test_qrcodes/
 *.png
 !README_images/*.png
 
+# Python
+__pycache__/
+*.pyc
+
+# Pytest
+.pytest_cache/
+
+# Generated artifacts
+*.png
+*.db
