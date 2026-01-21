@@ -1,10 +1,11 @@
 from flask import Flask, request, jsonify
 from src.ticketing.models import User, Ticket
 from src.ticketing.database import connection
+from flask_cors import CORS  # Add this
 
 
 app = Flask(__name__)
-
+CORS(app)
 
 connection.create_tables()
 

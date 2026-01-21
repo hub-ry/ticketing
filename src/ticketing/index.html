@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ticketing System</title>
+</head>
+<body>
+    <h1>Create Ticket</h1>
+    
+    <form id="ticketForm">
+        <input type="text" id="firstName" placeholder="First Name" required><br>
+        <input type="text" id="lastName" placeholder="Last Name" required><br>
+        <input type="email" id="email" placeholder="Email (optional)"><br>
+        <input type="text" id="phone" placeholder="Phone (optional)"><br>
+        <button type="submit">Create Ticket</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('ticketForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const data = {
+                first_name: document.getElementById('firstName').value,
+                last_name: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value
+            };
+
+            const response = await fetch('http://localhost:5001/api/tickets', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+            document.getElementById('result').innerHTML = 
+                `<h2>Ticket Created!</h2>
+                 <p>Ticket ID: ${result.ticket_id}</p>
+                 <p>User ID: ${result.user_id}</p>`;
+        });
+    </script>
+</body>
+</html>
