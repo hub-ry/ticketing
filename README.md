@@ -1,31 +1,62 @@
-# ticketing
+# Ticketing System
 
-## The Goal
+A modular, offline-first ticketing solution for event management. Features QR code generation, digital ticket management, and a lightweight REST API for seamless cross-device integration. Originally developed for the Purdue Grand Prix, but architected for general-purpose event ticketing.
 
-Create a custom and modular system to do the ticketing for events (or anything really) which works across devices without needing an internet connection. Originally being created for the Purdue Grand Prix.
+## Overview
 
+This system provides end-to-end ticketing capabilities, from user registration through QR code generation and validation. Built with simplicity and scalability in mind, it enables fast ticket processing at event gates without requiring internet connectivity—making it ideal for large-scale events of any kind.
 
-## The Plan (Ruhaan's Perspective - this is very open to change)
+## Features
 
-### QR Codes
+- **QR Code Tickets** – Generates unique, secure QR codes for each ticket
+- **User Management** – Stores attendee information with efficient database operations
+- **REST API** – Flask-based API for ticket creation and management
+- **Offline Support** – Core functionality works without internet connection
+- **Modular Design** – Clean separation of concerns with dedicated modules for models, database, and display
+- **Testing** – Comprehensive test suite with pytest
 
-Reference Link I am using (https://www.fielddrive.com/blog/qr-code-tickets)
+## Tech Stack
 
-The data stored in a QR code is generally harder to scan and replicate given the fact that data points have been translated to pixels and stored in a non-intuitive format. Furthermore, a scanner will increase the line speed on the day of the event given that the access times of the data and verification will be faster as no manual work is needed for the fetching process.
+- **Backend**: Python, Flask, Flask-CORS
+- **Database**: SQLite with custom connection management
+- **QR Codes**: qrcode library with PIL support
+- **Testing**: pytest with coverage tracking
 
-The QR Code can be modified to hold any piece of information, however the parameters I am thinking include:
+## Installation
 
-1. First Name
-2. Last Name
-3. Ticket Number (Unique)
-4. Some unique hash/code/crypt unique to the ticket to increase safety (One that wont require the customer to remember anything, purely back-end)
-5. A cool graphic of the Purdue Grand Prix logo, Purdue P, or a kart in the middle (customizable in the future)
-6. If possible set a use-limit on the QR codes (I guess something in the back-end, an update to a boolean would suffice)
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   pip install -e ".[dev]"
+   ```
 
-The next obvious question is how to provide the QR codes to the customers
+## Usage
 
-1. We could make an entire web-app for ticketing and directly give access to the customers to download the ticket
-2. An easier way could be emailing/texting/both the ticket to the customers after their registration has been complete
-(That's all I could think of right now)
+Start the API server:
 
+```bash
+python app.py
+```
 
+Create a ticket via POST request:
+
+```bash
+curl -X POST http://localhost:5000/api/tickets \
+  -H "Content-Type: application/json" \
+  -d '{"first_name": "John", "last_name": "Doe"}'
+```
+
+## Project Structure
+
+```
+src/ticketing/
+├── models/          # User and Ticket classes
+├── database/        # Database connection and operations
+├── display.py       # QR code generation and file handling
+└── index.html       # Web interface
+testing/             # Pytest test suite
+```
+
+## License
+
+Built collaboratively for the Purdue Grand Prix
